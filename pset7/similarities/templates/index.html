@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col">
+        <form action="/compare" enctype="multipart/form-data" method="post">
+
+            File 1: <input type = "file" name = "file1"><br>
+            File 2: <input type = "file" name = "file2"><br>
+            <select name = "algorithm" id = "algorithm">
+                <option value = "lines">Lines</option>
+                <option value = "sentences">Sentences</option>
+                <option value = "substrings">Substrings</option>
+            </select>
+            <input type = "number" id = "length" name = "length" disabled>
+            <button type = "submit">Compare</button>
+
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("algorithm").onchange = function () {
+            document.getElementById("length").setAttribute("disabled", "disabled");
+            if (this.value == 'substrings')
+                document.getElementById("length").removeAttribute("disabled");
+};
+    </script>
+
+{% endblock %}

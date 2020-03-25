@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <h1>Survey Results</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">What is pie?</th>
+          <th scope="col">Who is your favorite judge?</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in results %}
+        <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+            <td>{{ result[2] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

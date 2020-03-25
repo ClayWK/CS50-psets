@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form class="needs-validation" novalidate action="/form" method="post">
+
+        <div class="form-group">
+            <label>Name:</label>
+            <textarea class="form-control" name="name" rows="1" required></textarea>
+            <div class="invalid-feedback">
+                Please enter your name.
+            </div>
+        </div>
+
+        What is pie?
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pie" id="pieRadios1" value="A cake with a lid" required>
+          <label class="form-check-label" for="pieRadios1">
+            A cake with a lid
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pie" id="pieRadios2" value="A berry delivery system">
+          <label class="form-check-label" for="pieRadios2">
+            A berry delivery system
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pie" id="pieRadios3" value="A number">
+          <label class="form-check-label" for="pieRadios3">
+            A number
+          </label>
+        <div class="invalid-feedback">
+             Please select an option.
+        </div>
+        </div><br>
+
+
+        Who's your favorite judge?<br>
+        <select class="form-custom-select" name="judge" required>
+          <option selected disabled value="">Choose one</option>
+          <option value="Mary Berry">Mary Berry</option>
+          <option value="Paul Hollywood">Paul Hollywood</option>
+          <option value="Prue">Prue</option>
+          <option value="The Naked Hairless One from Blood Meridian">The Naked Hairless One from Blood Meridian</option>
+        </select>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+
+
+    </form>
+
+    <script>
+
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+
+    </script>
+
+{% endblock %}
