@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Stock</th>
+      <th scope="col">Purchase or Sale</th>
+      <th scope="col">Price</th>
+      <th scope="col"># of Shares</th>
+      <th scope="col">Date and Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for transaction in transactions %}
+    <tr>
+      <td>{{ transaction.symbol }}</td>
+      <td>{{ transaction.transaction_type }}</td>
+      <td>{{ transaction.price }}</td>
+      <td>{{ transaction.num_shares }} </td>
+      <td>{{ transaction.date_time }}</td>
+    </tr>
+    {% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

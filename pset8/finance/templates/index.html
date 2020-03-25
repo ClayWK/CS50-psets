@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Stock</th>
+      <th scope="col"># of Shares</th>
+      <th scope="col">Current Price</th>
+      <th scope="col">Total Value of Holding</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for stock in stocks %}
+    <tr>
+      <td>{{ stock.symbol }}</td>
+      <td>{{ stock.num_owned }}</td>
+      <td>{{ stock.price }} </td>
+      <td>{{ stock.value }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td> <b> Current Cash </b> </td>
+      <td>-</td>
+      <td>-</td>
+      <td> <b> {{ current_cash }} </b> </td>
+    </tr>
+        <tr>
+      <td> <b> Grand Total </b> </td>
+      <td>-</td>
+      <td>-</td>
+      <td> <b> {{ grand_total }} </b> </td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
